@@ -1,0 +1,10 @@
+#noteInput {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    margin-top: 20px;
+    padding: 10px;
+}
+#listNotes {
+    margin-top: 30px;
+    padding: 0 20px;
+}

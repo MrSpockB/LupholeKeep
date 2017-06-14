@@ -1,0 +1,1 @@
+var keepApp = angular.module('keepApp', ['ngMaterial', 'angular-click-outside']);

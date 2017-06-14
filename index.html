@@ -1,0 +1,53 @@
+<html lang="en" >
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body ng-app="keepApp" ng-cloak>
+        <div class="container">
+            <div
+                    ng-controller="AddNoteCtrl"
+                    class="addNote-wrapper"
+                    layout="row"
+                    layout-align="center"
+            >
+                <div id="noteInput" flex="70" click-outside="showAll = false">
+                    <md-input-container class="md-block">
+                        <input
+                                ng-model="title"
+                                placeholder="Title"
+                                ng-focus="showAll = true"
+                        >
+                    </md-input-container>
+                    <div class="wrap" ng-show="showAll">
+                        <md-input-container class="md-block">
+                            <textarea ng-model="content" md-maxlength="150" rows="2" md-select-on-focus placeholder="Content">
+                            </textarea>
+                        </md-input-container>
+                        <md-button class="md-raised" ng-click="addNote();">Add</md-button>
+                    </div>
+                </div>
+            </div>
+            <div id="listNotes" ng-controller="notesListCtrl" layout="row">
+                <md-card ng-repeat="note in notes" flex="33">
+                    <md-card-content>
+                        <h2>{{ note.title }}</h2>
+                        <p>{{ note.content }}</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="src/app.js"></script>
+        <script src="src/services/notesService.js" ></script>
+        <script src="src/controllers/addNoteController.js"></script>
+        <script src="src/controllers/notesListController.js"></script>
+        <script src="src/directives/clickoutside.directive.js"></script>
+
+    </body>
+</html>
