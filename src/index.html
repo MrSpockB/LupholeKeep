@@ -1,11 +1,13 @@
 <html lang="en" >
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="http://keep.luphole.com">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
         <link rel="stylesheet" href="styles/mdColorPicker.min.css">
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body ng-app="keepApp" ng-cloak>
+
         <div class="container">
             <div
                     ng-controller="AddNoteCtrl"
@@ -71,6 +73,11 @@
                             ></div>
                         </p>
                     </md-card-content>
+                    <md-card-actions layout="row">
+                        <a class="twitter-share-button"
+                           href="https://twitter.com/intent/tweet?text={{ 'I made a note: ' + note.title + ', ' + note.content }}">
+                            Tweet</a>
+                    </md-card-actions>
                     <md-card-actions layout="row" layout-align="end end">
                         <md-button ng-click="changeEditMode(index)">{{ note.edit ? "Save": "Edit" }}</md-button>
                         <md-button ng-click="removeNote(index)">Delete</md-button>
@@ -90,6 +97,21 @@
         <script src="controllers/addNoteController.js"></script>
         <script src="controllers/notesListController.js"></script>
         <script src="directives/clickoutside.directive.js"></script>
+        <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
 
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));</script>
     </body>
 </html>
