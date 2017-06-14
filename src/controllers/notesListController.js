@@ -16,7 +16,8 @@ keepApp.controller('notesListCtrl', ['$scope', '$http', 'notesService', function
             title: note.title,
             content: note.content,
             color: note.color,
-            categories: note.categories
+            categories: note.categories,
+            checkList: note.checkList
         };
         if(editValue) {
             var id = $scope.notes[index].id;
@@ -30,4 +31,8 @@ keepApp.controller('notesListCtrl', ['$scope', '$http', 'notesService', function
         var contentLowerCase = element.content.toLowerCase();
         return titleLowerCase.includes(term) || contentLowerCase.includes(term)
     };
+    $scope.addItemToCheckList = function(index) {
+        var item = { checked: false, text: '' };
+        $scope.notes[index].checkList.push(item);
+    }
 }]);
