@@ -38,6 +38,7 @@
                                 md-color-material-palette="false"
                                 md-color-history="false"
                         ></div>
+                        <md-chips ng-model="categories" md-removable="true" placeholder="Categories..."></md-chips>
                         <md-button class="md-raised" ng-click="addNote();">Add</md-button>
                     </div>
                 </div>
@@ -57,20 +58,22 @@
                         </h2>
                         <p>
                             <md-input-container class="md-block">
-                            <textarea aria-label="Content" ng-model="note.content" md-maxlength="150" rows="1" md-select-on-focus ng-disabled="!note.edit">
-                            </textarea>
+                                <textarea aria-label="Content" ng-model="note.content" md-maxlength="150" rows="1" md-select-on-focus ng-disabled="!note.edit">
+                                </textarea>
                             </md-input-container>
-                            <div
-                                    md-color-picker
-                                    md-color-hsl="false"
-                                    md-color-rgb="false"
-                                    ng-model="note.color"
-                                    md-color-spectrum="false"
-                                    md-color-sliders="false"
-                                    md-color-material-palette="false"
-                                    md-color-history="false"
-                                    ng-show="note.edit"
-                            ></div>
+                            <md-chips ng-model="note.categories" readonly="!note.edit" placeholder="Categories..."></md-chips>
+                            <div class="editWrapper" ng-show="note.edit">
+                                <div
+                                        md-color-picker
+                                        md-color-hsl="false"
+                                        md-color-rgb="false"
+                                        ng-model="note.color"
+                                        md-color-spectrum="false"
+                                        md-color-sliders="false"
+                                        md-color-material-palette="false"
+                                        md-color-history="false"
+                                ></div>
+                            </div>
                         </p>
                     </md-card-content>
                     <md-card-actions layout="row">
