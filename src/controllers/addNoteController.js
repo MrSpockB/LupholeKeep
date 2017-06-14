@@ -3,6 +3,7 @@ keepApp.controller('AddNoteCtrl', ['$scope', 'notesService', function($scope, no
     $scope.title = "";
     $scope.content = "";
     $scope.color = "";
+    $scope.data = notesService.data;
 
     $scope.addNote = function() {
         var color = $scope.color || '#FFF';

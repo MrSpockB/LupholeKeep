@@ -13,7 +13,7 @@
                     layout="row"
                     layout-align="center"
             >
-                <div id="noteInput" flex="70" click-outside="showAll = false">
+                <div id="noteInput" flex="60">
                     <md-input-container class="md-block">
                         <input
                                 ng-model="title"
@@ -39,21 +39,41 @@
                         <md-button class="md-raised" ng-click="addNote();">Add</md-button>
                     </div>
                 </div>
+                <div id="searchTerm" flex="30">
+                    <md-input-container class="md-block">
+                        <input ng-model="data.searchTerm" placeholder="Search...">
+                    </md-input-container>
+                </div>
             </div>
             <div id="listNotes" ng-controller="notesListCtrl" layout="row">
-                <md-card ng-repeat="note in notes" flex="33">
+                <md-card class="card" ng-repeat="(index, note) in notes | filter: filterCards" flex="33" style="background-color: {{ note.color }}">
                     <md-card-content>
-                        <h2>{{ note.title }}</h2>
-                        <p>{{ note.content }}</p>
+                        <h2>
+                            <md-input-container class="md-block">
+                                <input aria-label="Title" ng-model="note.title" ng-disabled="!note.edit">
+                            </md-input-container>
+                        </h2>
+                        <p>
+                            <md-input-container class="md-block">
+                            <textarea aria-label="Content" ng-model="note.content" md-maxlength="150" rows="1" md-select-on-focus ng-disabled="!note.edit">
+                            </textarea>
+                            </md-input-container>
+                        </p>
                     </md-card-content>
+                    <md-card-actions layout="row" layout-align="end end">
+                        <md-button ng-click="changeEditMode(index)">{{ note.edit ? "Save": "Edit" }}</md-button>
+                        <md-button ng-click="removeNote(index)">Delete</md-button>
+                    </md-card-actions>
                 </md-card>
             </div>
         </div>
+        <script src="src/vendor/tinycolor.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="src/directives/mdColorPicker.min.js" ></script>
         <script src="src/app.js"></script>
         <script src="src/services/notesService.js" ></script>
         <script src="src/controllers/addNoteController.js"></script>
