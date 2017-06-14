@@ -11,11 +11,6 @@ keepApp.service('notesService', function ($http) {
                 vm.notes.push(note);
             });
     };
-    this.editNote = function(index, title, content, color) {
-        this.notes[index].title = title;
-        this.notes[index].content = content;
-        this.notes[index].color = color;
-    }
     this.removeNote = function(index) {
         var id = this.notes[index].id;
         $http.delete('http://0.0.0.0:3000/api/notes/' + id);
