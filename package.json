@@ -1,0 +1,24 @@
+{
+  "name": "keep",
+  "version": "1.0.0",
+  "description": "keep",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp connect"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSpockB/LupholeKeep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSpockB/LupholeKeep/issues"
+  },
+  "homepage": "https://github.com/MrSpockB/LupholeKeep#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
+  }
+}
