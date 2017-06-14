@@ -3,8 +3,21 @@ keepApp.service('notesService', function ($http) {
     this.data = { searchTerm: '' };
     this.notes = [];
 
-    this.addNote = function(title, content, color, categories) {
-        var note = { title: title, content: content, color: color, edit: false, categories: categories};
+    this.addNote = function(title, content, color, categories, checkList) {
+        var checkListFinal = [];
+        checkList.map(function(item){
+            if(item.text !== "") {
+                checkListFinal.push(item);
+            }
+        });
+        var note = {
+            title: title,
+            content: content,
+            color: color,
+            edit: false,
+            categories: categories,
+            checkList: checkListFinal
+        };
         $http.post('http://0.0.0.0:3000/api/notes/', note)
             .then(function(resp){
                 note.id = resp.data.id;
