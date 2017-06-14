@@ -21,6 +21,10 @@
     "categories": {
       "type": "array",
       "required": false
+    },
+    "checkList": {
+      "type": "array",
+      "required": false
     }
   },
   "validations": [],
