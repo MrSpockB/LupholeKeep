@@ -17,6 +17,10 @@
     "color": {
       "type": "string",
       "required": true
+    },
+    "categories": {
+      "type": "array",
+      "required": false
     }
   },
   "validations": [],
