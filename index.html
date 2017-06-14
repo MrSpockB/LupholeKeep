@@ -2,6 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" href="src/styles/mdColorPicker.min.css">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body ng-app="keepApp" ng-cloak>
@@ -25,6 +26,16 @@
                             <textarea ng-model="content" md-maxlength="150" rows="2" md-select-on-focus placeholder="Content">
                             </textarea>
                         </md-input-container>
+                        <div
+                                md-color-picker
+                                md-color-hsl="false"
+                                md-color-rgb="false"
+                                ng-model="color"
+                                md-color-spectrum="false"
+                                md-color-sliders="false"
+                                md-color-material-palette="false"
+                                md-color-history="false"
+                        ></div>
                         <md-button class="md-raised" ng-click="addNote();">Add</md-button>
                     </div>
                 </div>

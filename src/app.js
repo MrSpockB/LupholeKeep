@@ -1,1 +1,1 @@
-var keepApp = angular.module('keepApp', ['ngMaterial', 'angular-click-outside']);
+var keepApp = angular.module('keepApp', ['ngMaterial', 'angular-click-outside', 'mdColorPicker']);
