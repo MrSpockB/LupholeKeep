@@ -45,8 +45,8 @@
                     </md-input-container>
                 </div>
             </div>
-            <div id="listNotes" ng-controller="notesListCtrl" layout="row">
-                <md-card class="card" ng-repeat="(index, note) in notes | filter: filterCards" flex="33" style="background-color: {{ note.color }}">
+            <div id="listNotes" ng-controller="notesListCtrl" layout="row" layout-wrap layout-align="center">
+                <md-card class="card" ng-repeat="(index, note) in notes | filter: filterCards" flex="30" style="background-color: {{ note.color }}">
                     <md-card-content>
                         <h2>
                             <md-input-container class="md-block">
