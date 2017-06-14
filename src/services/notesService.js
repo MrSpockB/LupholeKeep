@@ -3,8 +3,8 @@ keepApp.service('notesService', function ($http) {
     this.data = { searchTerm: '' };
     this.notes = [];
 
-    this.addNote = function(title, content, color) {
-        var note = { title: title, content: content, color: color, edit: false};
+    this.addNote = function(title, content, color, categories) {
+        var note = { title: title, content: content, color: color, edit: false, categories: categories};
         $http.post('http://0.0.0.0:3000/api/notes/', note)
             .then(function(resp){
                 note.id = resp.data.id;
