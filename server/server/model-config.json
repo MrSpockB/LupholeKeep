@@ -39,7 +39,7 @@
     "dataSource": null
   },
   "note": {
-    "dataSource": "db",
+    "dataSource": "mongoDs",
     "public": true
   }
 }
