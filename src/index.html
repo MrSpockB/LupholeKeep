@@ -58,6 +58,17 @@
                             <textarea aria-label="Content" ng-model="note.content" md-maxlength="150" rows="1" md-select-on-focus ng-disabled="!note.edit">
                             </textarea>
                             </md-input-container>
+                            <div
+                                    md-color-picker
+                                    md-color-hsl="false"
+                                    md-color-rgb="false"
+                                    ng-model="note.color"
+                                    md-color-spectrum="false"
+                                    md-color-sliders="false"
+                                    md-color-material-palette="false"
+                                    md-color-history="false"
+                                    ng-show="note.edit"
+                            ></div>
                         </p>
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="end end">
