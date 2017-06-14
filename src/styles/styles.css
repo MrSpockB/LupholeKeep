@@ -4,6 +4,9 @@
     margin-top: 20px;
     padding: 10px;
 }
+#noteInput md-chips-wrap {
+    margin-bottom: 15px;
+}
 #listNotes {
     margin-top: 30px;
     padding: 0 20px;
