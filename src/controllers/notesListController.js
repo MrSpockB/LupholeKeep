@@ -9,14 +9,15 @@ keepApp.controller('notesListCtrl', ['$scope', '$http', 'notesService', function
     $scope.removeNote = function(index) {
         notesService.removeNote(index);
     };
-    $scope.changeEditMode = function(index) {
+    $scope.editCard = function(index) {
         var editValue = $scope.notes[index].edit;
+        var note = $scope.notes[index];
         var data = {
-            title: $scope.notes[index].title,
-            content: $scope.notes[index].content,
-            color: $scope.notes[index].color
-
-        }
+            title: note.title,
+            content: note.content,
+            color: note.color,
+            categories: note.categories
+        };
         if(editValue) {
             var id = $scope.notes[index].id;
             $http.patch('http://0.0.0.0:3000/api/notes/' + id, data);
